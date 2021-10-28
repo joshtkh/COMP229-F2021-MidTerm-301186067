@@ -26,10 +26,10 @@ router.get('/', (req, res, next) => {
       });
     }
   });
-
 });
 
 //  GET the Book Details page in order to add a new Book
+// Display Add page
 router.get('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
@@ -39,11 +39,12 @@ router.get('/add', (req, res, next) => {
 });
 
 // POST process the Book Details page and create a new Book - CREATE
+// Process Add page
 router.post('/add', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    // Create a new book item with the model using the request data
+    // Create a new book item with the model using the form request data
     let newItem = new book({
       "Title": req.body.title,
       "Description": "",
@@ -56,7 +57,8 @@ router.post('/add', (req, res, next) => {
         console.error(err);
         res.end(err);
       };
-      res.redirect("/books"); // if there is an error, put them back on list page
+      // if there is an error, redirect to list page
+      res.redirect("/books"); 
     });
 });
 
@@ -74,7 +76,7 @@ router.get('/:id', (req, res, next) => {
         console.error(err);
         res.end(err);
       }
-      console.log("Books: " + bookToEdit);
+      // show the edit page
       res.render('books/details', { title: "Add a Book", books: bookToEdit });
     });
 });
@@ -101,6 +103,7 @@ router.post('/:id', (req, res, next) => {
         console.error(err);
         res.end(err);
       }
+      // redirect after update
       res.redirect("/books");
     });
 });
@@ -110,7 +113,7 @@ router.get('/delete/:id', (req, res, next) => {
     /*****************
      * ADD CODE HERE *
      *****************/
-    let id = req.params.id;
+    let id = req.params.id; // get the id we wish to delete
     // remove the book from the collection
     books.remove({ _id: id }, (err) => {
       if(err) {
