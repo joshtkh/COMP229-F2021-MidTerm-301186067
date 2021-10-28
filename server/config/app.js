@@ -18,7 +18,10 @@ mongoDB.once('open', ()=> {
   console.log("Connected to MongoDB...");
 });
 
-
+/* app.js
+    Student Name: Joshua Harding
+    Student Number: 301186067
+    WebApp Name: COMP229-F2021-MIDTERM-301186067 */
 // define routers
 let index = require('../routes/index'); // top level routes
 let books = require('../routes/books'); // routes for books

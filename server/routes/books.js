@@ -1,3 +1,8 @@
+/* book.js
+    Student Name: Joshua Harding
+    Student Number: 301186067
+    WebApp Name: COMP229-F2021-MIDTERM-301186067 */
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
