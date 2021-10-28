@@ -9,7 +9,7 @@ let logger = require('morgan');
 let mongoose = require('mongoose');
 // URI
 let DB = require('./db');
-
+// take URI from either heroku or our DB config file
 mongoose.connect(process.env.URI || DB.URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
 let mongoDB = mongoose.connection;
